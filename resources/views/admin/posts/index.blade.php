@@ -44,7 +44,7 @@
             <td>{{ $post->slug }}</td>
             <td>
                 <ul class="list-unstyled d-flex m-0 gap-1 justify-content-end">
-                    <li><a href="{{ route('admin.posts.show', $post) }}" class="btn btn-sm btn-primary">Show</a></li>
+                    <li><a href="{{ route('admin.posts.show', $post->slug) }}" class="btn btn-sm btn-primary">Show</a></li>
                     <li><a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-sm btn-warning">Edit</a></li>
                     <li>
                       <form action="{{ route('admin.posts.destroy', $post) }}" method="POST">
