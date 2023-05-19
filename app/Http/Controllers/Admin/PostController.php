@@ -41,9 +41,15 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         $data = $request->validated();
+        
         $post = new Post();
         $post->fill($data);
+
         $post->slug = Str::slug($data['title'], '-');
+        if(isset($data['image'])){
+            $post->image = Storage::put('uploads', $data['image']);
+        }
+
         $post->save();
 
         return redirect()->route('admin.posts.index')->with('message', 'Post creato con successo');
